@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../supabase/client";
 import PageWrapper from "../../components/PageWrapper";
+import { motion, AnimatePresence } from "framer-motion";
 
 const PAGE_SIZE = 6;
 
@@ -9,6 +10,7 @@ const Projects = () => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const fetchProjects = async (pageIndex) => {
     setLoading(true);
@@ -25,7 +27,7 @@ const Projects = () => {
       console.error("Error fetching projects:", error);
     } else {
       setProjects(data);
-      setHasMore(data.length === PAGE_SIZE); // Jika kurang dari PAGE_SIZE, berarti tidak ada next
+      setHasMore(data.length === PAGE_SIZE);
     }
 
     setLoading(false);
@@ -43,6 +45,9 @@ const Projects = () => {
     if (page > 0) setPage((prev) => prev - 1);
   };
 
+  const openModal = (project) => setSelectedProject(project);
+  const closeModal = () => setSelectedProject(null);
+
   return (
     <PageWrapper>
       <div className="min-h-screen bg-white text-black py-10 px-4 md:px-8">
@@ -54,57 +59,21 @@ const Projects = () => {
           <p className="text-center text-gray-500">Loading...</p>
         ) : (
           <>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.map((project) => (
                 <div
                   key={project.id}
-                  className="bg-white border-4 border-black rounded-lg p-4 hover:scale-[1.02] transition-transform"
+                  onClick={() => openModal(project)}
+                  className="cursor-pointer bg-white border-4 border-black rounded-lg p-2 hover:scale-[1.02] transition-transform"
                 >
                   <img
                     src={project.image_url}
                     alt={project.title}
-                    className="w-full h-40 object-cover border-2 border-black rounded mb-4"
+                    className="w-full md:h-80 object-cover border-2 border-black rounded mb-2"
                   />
-                  <h2 className="text-xl font-bold border-b-2 border-black mb-2 pb-1">
+                  <h2 className="text-lg font-bold text-center border-t border-black pt-1">
                     {project.title}
                   </h2>
-                  <p className="text-gray-800 mb-4">{project.description}</p>
-
-                  {project.techstack && (
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.techstack.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="text-xs border border-black px-2 py-1 rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  <div className="flex gap-4 mt-auto">
-                    {project.demo_url && (
-                      <a
-                        href={project.demo_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm underline hover:text-blue-600"
-                      >
-                        Live Demo
-                      </a>
-                    )}
-                    {project.github_url && (
-                      <a
-                        href={project.github_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm underline hover:text-blue-600"
-                      >
-                        GitHub
-                      </a>
-                    )}
-                  </div>
                 </div>
               ))}
             </div>
@@ -129,6 +98,85 @@ const Projects = () => {
             </div>
           </>
         )}
+
+        {/* Modal */}
+        <AnimatePresence>
+          {selectedProject && (
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex justify-center items-center"
+              onClick={closeModal}
+            >
+              <motion.div
+                key="modal"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="bg-white border-4 border-black rounded-lg w-full max-w-xl mx-4 p-6 relative"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={closeModal}
+                  className="absolute top-2 right-2 text-black text-xl font-bold hover:text-red-600"
+                >
+                  &times;
+                </button>
+
+                <img
+                  src={selectedProject.image_url}
+                  alt={selectedProject.title}
+                  className="w-full h-60 object-cover border-2 border-black rounded mb-4"
+                />
+                <h2 className="text-2xl font-bold mb-2">
+                  {selectedProject.title}
+                </h2>
+                <p className="mb-4 text-gray-800">
+                  {selectedProject.description}
+                </p>
+
+                {selectedProject.techstack?.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {selectedProject.techstack.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="text-xs border border-black px-2 py-1 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div className="flex gap-4">
+                  {selectedProject.demo_url && (
+                    <a
+                      href={selectedProject.demo_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-blue-600 text-sm"
+                    >
+                      Live Demo
+                    </a>
+                  )}
+                  {selectedProject.github_url && (
+                    <a
+                      href={selectedProject.github_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-blue-600 text-sm"
+                    >
+                      GitHub
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </PageWrapper>
   );
