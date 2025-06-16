@@ -4,31 +4,31 @@ import { motion } from "framer-motion";
 const experiences = [
   {
     year: "Mar 2024 - Feb 2025",
-    title: "Ketua Himpunan Mahasiswa",
-    place: "Fasilkom, Universitas Esa Unggul",
+    title: "Student Association President",
+    place: "Faculty of Computer Science, Esa Unggul University",
     description:
-      "Memimpin organisasi mahasiswa jurusan Teknik Informatika, mengatur program kerja, serta menjalin kolaborasi dengan pihak eksternal.",
+      "Led the Informatics Engineering student organization, managed work programs, and built collaborations with external partners.",
   },
   {
-    year: "2022 - Sekarang",
+    year: "2022 - Present",
     title: "Frontend Web Developer",
     place: "Freelance / Personal Projects",
     description:
-      "Membangun berbagai proyek website menggunakan React, Tailwind CSS, dan Supabase. Fokus pada UI/UX dan performa web.",
+      "Developed various web projects using React, Tailwind CSS, and Supabase. Focused on UI/UX and web performance.",
   },
   {
-    year: "Oktober 2024 - Sekarang",
+    year: "October 2024 - Present",
     title: "IT Support",
     place: "SDS Merpati",
     description:
-      "Memberikan dukungan teknis untuk perangkat dan jaringan sekolah.",
+      "Provided technical support for school devices and network infrastructure.",
   },
   {
-    year: "Januari 2025 - Sekarang",
-    title: "Guru TIK",
+    year: "January 2025 - Present",
+    title: "ICT Teacher",
     place: "SMK AL-IRSYAD AL-ISLAMYAH",
     description:
-      "Mengajar dasar-dasar TIK kepada siswa. Mencakup pengenalan komputer, internet, dan aplikasi produktivitas.",
+      "Taught basic ICT to students, including introduction to computers, the internet, and productivity tools.",
   },
 ];
 
@@ -37,14 +37,14 @@ const ExperienceSection = () => {
 
   useEffect(() => {
     const el = scrollRef.current;
-    if (!el || window.innerWidth < 768) return; // auto scroll hanya di desktop
+    if (!el || window.innerWidth < 768) return; // Auto scroll only on desktop
 
     const scrollAmount = 1; // px per frame
     let animationFrameId;
 
     const autoScroll = () => {
       if (el.scrollLeft + el.clientWidth >= el.scrollWidth) {
-        el.scrollLeft = 0; // kembali ke awal
+        el.scrollLeft = 0; // Reset to beginning
       } else {
         el.scrollLeft += scrollAmount;
       }
@@ -59,8 +59,8 @@ const ExperienceSection = () => {
   return (
     <section className="bg-gray-50 py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-5xl font-bold text-center mb-10">
-          Pengalaman
+        <h2 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-center mb-10">
+          Experience
         </h2>
 
         <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">

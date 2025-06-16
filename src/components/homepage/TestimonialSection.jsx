@@ -4,24 +4,24 @@ import { motion, AnimatePresence } from "framer-motion";
 const testimonials = [
   {
     name: "Budi Santoso",
-    role: "Rekan Tim Freelance",
+    role: "Freelance Teammate",
     image: "https://i.pravatar.cc/100?img=1",
     comment:
-      "Azmi adalah rekan kerja yang cepat tanggap dan sangat memperhatikan detail. Sangat nyaman bekerja dengannya!",
+      "Azmi is a responsive teammate who pays great attention to detail. It's a pleasure working with him!",
   },
   {
     name: "Nadia Permata",
-    role: "Ketua Organisasi",
+    role: "Organization Leader",
     image: "https://i.pravatar.cc/100?img=2",
     comment:
-      "Selalu bisa diandalkan saat mengatur program kerja. Kepemimpinannya sangat menginspirasi.",
+      "Always reliable when managing work programs. His leadership is truly inspiring.",
   },
   {
     name: "Rafi Alfarizi",
-    role: "Guru Pembimbing",
+    role: "Supervising Teacher",
     image: "https://i.pravatar.cc/100?img=3",
     comment:
-      "Azmi adalah siswa yang luar biasa. Memiliki rasa ingin tahu tinggi dan semangat belajar yang besar.",
+      "Azmi is an outstanding student. He has a strong curiosity and great enthusiasm for learning.",
   },
 ];
 
@@ -38,7 +38,9 @@ const TestimonialSection = () => {
   return (
     <section className="bg-gray-100 py-20 px-4">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-5xl font-bold mb-12">Apa Kata Mereka?</h2>
+        <h2 className="text-3xl sm:text-5xl lg:text-7xl font-bold mb-12">
+          What They Say
+        </h2>
 
         <div className="relative">
           <AnimatePresence mode="wait">

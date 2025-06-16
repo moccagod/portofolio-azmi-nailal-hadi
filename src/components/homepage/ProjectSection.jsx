@@ -24,7 +24,7 @@ const ProjectSection = () => {
     <section className="bg-white py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          className="text-3xl sm:text-5xl font-bold text-center mb-12"
+          className="text-3xl sm:text-5xl lg:text-7xl font-bold text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -51,7 +51,9 @@ const ProjectSection = () => {
               <h3 className="text-lg font-semibold border-b-2 border-black pb-1 mb-2">
                 {project.title}
               </h3>
-              <p className="text-sm text-gray-700 mb-3">{project.description}</p>
+              <p className="text-sm text-gray-700 mb-3">
+                {project.description}
+              </p>
 
               {project.techstack && (
                 <div className="flex flex-wrap gap-2 mb-3">

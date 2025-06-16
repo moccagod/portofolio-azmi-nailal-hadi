@@ -29,7 +29,7 @@ const HeroSection = () => {
   return (
     <section className="min-h-[80vh] flex items-center px-6 py-16 bg-white text-black">
       <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-        {/* Kanan: Gambar */}
+        {/* Right: Image */}
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -44,7 +44,7 @@ const HeroSection = () => {
           />
         </motion.div>
 
-        {/* Kiri: Teks */}
+        {/* Left: Text */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -71,7 +71,7 @@ const HeroSection = () => {
             </span>
           </p>
 
-          {/* Tombol */}
+          {/* Buttons */}
           <div className="flex flex-wrap gap-4 mb-4 justify-center md:justify-start">
             <a
               href="/cv.pdf"
@@ -82,7 +82,7 @@ const HeroSection = () => {
               Download CV
             </a>
             <Link
-              to="/projects"
+              to="/project"
               className="flex items-center gap-2 border-2 border-black text-black px-5 py-3 rounded shadow-[3px_3px_0px_black] hover:bg-black hover:text-white hover:scale-105 transition-transform duration-200"
             >
               <Briefcase size={18} />
@@ -90,7 +90,7 @@ const HeroSection = () => {
             </Link>
           </div>
 
-          {/* Sosial Media */}
+          {/* Social Media */}
           <div className="flex gap-4 justify-center md:justify-start text-2xl text-gray-700 mt-2">
             <a
               href="https://github.com/azminailalhadi"

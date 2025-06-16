@@ -6,42 +6,42 @@ const techs = [
   {
     name: "html5",
     label: "HTML5",
-    desc: "Struktur dasar halaman web dengan semantik yang rapi.",
+    desc: "The basic structure of web pages with clean semantic markup.",
   },
   {
     name: "css3",
     label: "CSS3",
-    desc: "Styling visual halaman agar lebih menarik dan responsif.",
+    desc: "Styling the visual appearance of pages to be attractive and responsive.",
   },
   {
     name: "js",
     label: "JavaScript",
-    desc: "Bahasa interaktif untuk menghidupkan elemen di website.",
+    desc: "Interactive scripting language to bring websites to life.",
   },
   {
     name: "react",
     label: "React",
-    desc: "Library frontend berbasis komponen untuk UI modern.",
+    desc: "A component-based frontend library for building modern UIs.",
   },
   {
     name: "tailwindcss",
     label: "Tailwind CSS",
-    desc: "Utility-first CSS framework untuk styling cepat dan fleksibel.",
+    desc: "Utility-first CSS framework for fast and flexible styling.",
   },
   {
     name: "git",
     label: "Git",
-    desc: "Version control untuk mengelola riwayat pengembangan.",
+    desc: "Version control system to manage development history.",
   },
   {
     name: "github",
     label: "GitHub",
-    desc: "Tempat menyimpan dan berkolaborasi proyek via Git.",
+    desc: "A platform for hosting and collaborating on Git-based projects.",
   },
   {
     name: "supabase",
     label: "Supabase",
-    desc: "Backend realtime dengan database dan autentikasi.",
+    desc: "Realtime backend with built-in database and authentication.",
   },
 ];
 
@@ -65,7 +65,7 @@ const TechSection = () => {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Kanan - Detail tech aktif */}
+          {/* Right - Active tech detail */}
           <div className="relative min-h-[220px] flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div
@@ -77,10 +77,10 @@ const TechSection = () => {
                 className="w-full max-w-lg border-2 border-black rounded-xl shadow-[4px_4px_0px_black] bg-white p-6"
               >
                 <div className="flex items-center gap-5">
-                  {/* ICON kiri */}
+                  {/* Left - Icon */}
                   <StackIcon name={activeTech.name} size={60} />
 
-                  {/* Konten kanan */}
+                  {/* Right - Content */}
                   <div className="text-left">
                     <h3 className="text-xl font-bold mb-1">
                       {activeTech.label}
@@ -91,7 +91,8 @@ const TechSection = () => {
               </motion.div>
             </AnimatePresence>
           </div>
-          {/* Kiri - Grid semua ikon */}
+
+          {/* Left - All icons grid */}
           <div className="grid grid-cols-4 gap-6 place-items-center">
             {techs.map((tech) => (
               <div
