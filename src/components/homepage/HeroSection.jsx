@@ -8,7 +8,7 @@ const HeroSection = () => {
         {/* Kanan: Gambar / Ilustrasi */}
         <div className="flex justify-center">
           <img
-            src="https://mhzgrohlrvvqnsvswylk.supabase.co/storage/v1/object/sign/images/reading.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV83YWU3NzUyZS1iMjFjLTQ1MzQtYjFjYS04ODExMTQ3MTdjNjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvcmVhZGluZy5wbmciLCJpYXQiOjE3NTAwMzg0NjQsImV4cCI6MTc4MTU3NDQ2NH0.n6ZPluWP9S_6YiSM4jBt3KO4uAJjof_gso4VU1CVmfY"
+            src="https://mhzgrohlrvvqnsvswylk.supabase.co/storage/v1/object/public/images//reading.png"
             alt="Web Developer Illustration"
             className="w-[80%] max-w-sm md:max-w-full"
           />

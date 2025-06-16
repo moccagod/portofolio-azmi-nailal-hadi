@@ -7,7 +7,7 @@ const CTASection = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Kiri - Gambar ilustrasi */}
         <motion.img
-          src="https://mhzgrohlrvvqnsvswylk.supabase.co/storage/v1/object/sign/images/rejected.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV83YWU3NzUyZS1iMjFjLTQ1MzQtYjFjYS04ODExMTQ3MTdjNjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvcmVqZWN0ZWQucG5nIiwiaWF0IjoxNzUwMDYwNDU1LCJleHAiOjE3ODE1OTY0NTV9.vxZdhtzYZpr-4vk45_l74zXfBygw01bMZBTBjh5F3ek"
+          src="https://mhzgrohlrvvqnsvswylk.supabase.co/storage/v1/object/public/images//rejected.png"
           alt="Computer Engineer"
           className="w-full max-w-md mx-auto drop-shadow-xl"
           initial={{ opacity: 0, scale: 0.95 }}
