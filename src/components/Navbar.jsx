@@ -9,7 +9,7 @@ const Navbar = () => {
     "font-semibold text-sm sm:text-base border-2 border-black px-3 py-2 rounded shadow-[2px_2px_0_#000] transition-all transform hover:-translate-y-1 hover:bg-black hover:text-white";
 
   return (
-    <header className="sticky top-0 z-50 bg-white text-black border-b-2 border-black shadow-md">
+    <header className="sticky top-0 z-50 py-2 bg-white text-black border-b-2 border-black shadow-md">
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center min-h-[64px]">
         {/* Logo */}
         <Link
